@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IKSIR — Logo Concepts Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500&family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4EFE4;
+    --fg: #1A1A1A;
+    --muted: #767060;
+    --accent: #C97168;
+    --rule: rgba(26,26,26,0.12);
+    --card: #FFFFFF;
+  }
+  [data-palette="A"] {
+    --bg: #0F1B33;
+    --fg: #C9A24A;
+    --muted: #8a7e5a;
+    --accent: #C9A24A;
+    --rule: rgba(201,162,74,0.18);
+    --card: #142142;
+  }
+  [data-palette="B"] {
+    --bg: #F4EFE4;
+    --fg: #1A1A1A;
+    --muted: #6E6960;
+    --accent: #C97168;
+    --rule: rgba(26,26,26,0.12);
+    --card: #FFFFFF;
+  }
+  [data-palette="C"] {
+    --bg: #F2EAD3;
+    --fg: #2A3318;
+    --muted: #6c7050;
+    --accent: #D89A2E;
+    --rule: rgba(42,51,24,0.18);
+    --card: #FBF7E8;
+  }
+  [data-mono="black"] { --bg: #FFFFFF; --fg: #000000; --card: #FFFFFF; --rule: rgba(0,0,0,0.1); --muted: #555; --accent: #000; }
+  [data-mono="white"] { --bg: #000000; --fg: #FFFFFF; --card: #0a0a0a; --rule: rgba(255,255,255,0.12); --muted: #aaa; --accent: #fff; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    transition: background 240ms ease, color 240ms ease;
+    line-height: 1.5;
+  }
+  header.bar {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 14px 28px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    backdrop-filter: blur(8px);
+  }
+  .bar h1 {
+    margin: 0; font-size: 14px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .controls { display: flex; gap: 6px; flex-wrap: wrap; }
+  .controls button {
+    appearance: none; border: 1px solid var(--rule); background: transparent;
+    color: var(--fg); font: inherit; font-size: 12px; letter-spacing: 0.08em;
+    padding: 6px 12px; border-radius: 999px; cursor: pointer; text-transform: uppercase;
+  }
+  .controls button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+  main { max-width: 1180px; margin: 0 auto; padding: 32px 28px 96px; }
+
+  h2.section {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; font-size: 28px; margin: 56px 0 8px;
+    letter-spacing: 0.02em;
+  }
+  p.lede { color: var(--muted); margin: 0 0 24px; max-width: 64ch; }
+
+  .concept {
+    background: var(--card); border: 1px solid var(--rule); border-radius: 16px;
+    padding: 28px; margin-bottom: 24px;
+  }
+  .concept-head {
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--rule); padding-bottom: 14px; margin-bottom: 18px;
+  }
+  .concept-head .num {
+    font-family: 'Cormorant Garamond', serif; font-size: 38px; line-height: 1;
+    color: var(--accent);
+  }
+  .concept-head .name {
+    font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500;
+  }
+  .concept-head .lever {
+    color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em;
+    margin-left: auto;
+  }
+
+  .grid { display: grid; gap: 22px; }
+  .grid.lockup { grid-template-columns: 1.4fr 1fr; }
+  @media (max-width: 760px) { .grid.lockup { grid-template-columns: 1fr; } }
+
+  .panel {
+    border: 1px solid var(--rule); border-radius: 12px; padding: 24px;
+    display: flex; align-items: center; justify-content: center; min-height: 160px;
+    color: var(--fg);
+  }
+  .panel.dark { background: #0F1B33; color: #C9A24A; }
+  .panel.light { background: #F4EFE4; color: #1A1A1A; }
+  .panel .ph { width: 100%; max-width: 360px; }
+  .panel .mark-ph { width: 120px; height: 120px; }
+
+  .row-favicon {
+    display: flex; align-items: end; gap: 24px; padding: 14px 0; border-top: 1px solid var(--rule);
+  }
+  .fav { display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--muted); font-size: 11px; }
+  .fav .frame { display: grid; place-items: center; color: var(--fg); }
+  .fav.s16 .frame { width: 16px; height: 16px; }
+  .fav.s32 .frame { width: 32px; height: 32px; }
+  .fav.s48 .frame { width: 48px; height: 48px; }
+  .fav.s64 .frame { width: 64px; height: 64px; }
+  .fav.s128 .frame { width: 128px; height: 128px; }
+  .fav .frame svg { width: 100%; height: 100%; display: block; }
+
+  .row-mono {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;
+  }
+  .mono-cell { padding: 28px; border-radius: 12px; display: grid; place-items: center; min-height: 140px; }
+  .mono-cell.k { background: #000; color: #fff; }
+  .mono-cell.w { background: #fff; color: #000; border: 1px solid var(--rule); }
+  .mono-cell svg { width: 70%; height: auto; }
+
+  .row-app {
+    display: flex; gap: 18px; flex-wrap: wrap; align-items: center; margin-top: 16px;
+  }
+  .app-icon { width: 80px; height: 80px; border-radius: 18px; display: grid; place-items: center;
+    background: var(--card); border: 1px solid var(--rule); color: var(--fg);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  }
+  .app-icon.gold { background: #0F1B33; color: #C9A24A; }
+  .app-icon.rose { background: #F4EFE4; color: #C97168; }
+  .app-icon.olive { background: #2A3318; color: #F2EAD3; }
+  .app-icon svg { width: 60%; height: 60%; }
+
+  .row-ph-circle {
+    display: flex; gap: 18px; flex-wrap: wrap; align-items: center; margin-top: 16px;
+  }
+  .avatar { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: var(--card); border: 1px solid var(--rule); color: var(--fg); }
+  .avatar svg { width: 65%; height: 65%; }
+
+  .notes {
+    color: var(--muted); font-size: 13px; margin-top: 16px; line-height: 1.6;
+  }
+  .notes b { color: var(--fg); font-weight: 500; }
+
+  .label {
+    display: inline-block; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+
+  .current-banner {
+    border: 1px dashed var(--rule); border-radius: 12px; padding: 22px 28px; margin-bottom: 12px;
+    color: var(--muted); font-size: 13px;
+  }
+  .current-banner b { color: var(--fg); font-weight: 500; }
+</style>
+</head>
+<body data-palette="B">
+
+<header class="bar">
+  <h1>IKSIR — Global Brand Concepts</h1>
+  <div class="controls">
+    <span style="color:var(--muted); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; align-self:center; margin-right:6px">Palette</span>
+    <button data-palette="A">Heritage Gold</button>
+    <button data-palette="B" class="active">Sand &amp; Ink</button>
+    <button data-palette="C">Olive &amp; Saffron</button>
+    <span style="width: 14px"></span>
+    <button data-mono="black">Mono Black</button>
+    <button data-mono="white">Mono White</button>
+  </div>
+</header>
+
+<main>
+
+  <h2 class="section">How to read this</h2>
+  <p class="lede">
+    Six directions, each addressing a different lever for taking IKSIR from premium-niche to global. Use the palette switcher above to test each concept under three brand palette directions (Heritage Gold-on-Navy, Sand &amp; Ink, Olive &amp; Saffron) plus the two mandatory mono fallbacks. Each concept includes a wordmark lockup, a standalone mark, a favicon strip (16–128px), an app-icon row, and an avatar test for circular crops.
+  </p>
+
+  <div class="current-banner">
+    <b>Reference — your current logo.</b> Gold-on-navy serif wordmark with a calligraphic K tail, crescent above the "i", chisel terminals. Strong system, but the brand mark is welded to the wordmark and disappears at favicon scale. The six concepts below propose alternatives that survive at 16px and travel across markets.
+  </div>
+
+  <div id="concepts"></div>
+
+</main>
+
+<template id="conceptTpl">
+  <section class="concept">
+    <div class="concept-head">
+      <span class="num"></span>
+      <span class="name"></span>
+      <span class="lever"></span>
+    </div>
+
+    <div class="grid lockup">
+      <div>
+        <span class="label">Wordmark lockup</span>
+        <div class="panel"><div class="ph wordmark-slot"></div></div>
+      </div>
+      <div>
+        <span class="label">Standalone mark</span>
+        <div class="panel"><div class="mark-ph mark-slot"></div></div>
+      </div>
+    </div>
+
+    <span class="label" style="margin-top:18px;display:block">Favicon strip — does it survive at 16px?</span>
+    <div class="row-favicon">
+      <div class="fav s16"><div class="frame fav-slot"></div><span>16</span></div>
+      <div class="fav s32"><div class="frame fav-slot"></div><span>32</span></div>
+      <div class="fav s48"><div class="frame fav-slot"></div><span>48</span></div>
+      <div class="fav s64"><div class="frame fav-slot"></div><span>64</span></div>
+      <div class="fav s128"><div class="frame fav-slot"></div><span>128</span></div>
+    </div>
+
+    <span class="label" style="margin-top:14px;display:block">App icon — palette options</span>
+    <div class="row-app">
+      <div class="app-icon gold"><span class="app-slot"></span></div>
+      <div class="app-icon rose"><span class="app-slot"></span></div>
+      <div class="app-icon olive"><span class="app-slot"></span></div>
+      <div class="app-icon"><span class="app-slot"></span></div>
+    </div>
+
+    <span class="label" style="margin-top:14px;display:block">Avatar (Instagram, X, LinkedIn) — circular crop</span>
+    <div class="row-ph-circle">
+      <div class="avatar"><span class="av-slot"></span></div>
+      <div class="avatar" style="background:#0F1B33;color:#C9A24A"><span class="av-slot"></span></div>
+      <div class="avatar" style="background:#000;color:#fff"><span class="av-slot"></span></div>
+    </div>
+
+    <span class="label" style="margin-top:14px;display:block">Mono fallback (mandatory for global use)</span>
+    <div class="row-mono">
+      <div class="mono-cell k"><span class="mono-slot"></span></div>
+      <div class="mono-cell w"><span class="mono-slot"></span></div>
+    </div>
+
+    <p class="notes notes-slot"></p>
+  </section>
+</template>
+
+<script>
+  const concepts = [
+    { id: '01', name: 'Crescent-Counter', lever: 'Mark-first identity',
+      file: 'concepts/01-crescent-counter.svg', mark: 'concepts/01-crescent-counter-mark.svg',
+      notes: '<b>Why it works globally:</b> the standalone mark survives at 16px and reads as "circle-with-crescent" at every size. <b>Watch:</b> the geometric humanist sans wordmark trades some heritage texture for legibility — pair with a heritage-coded photography style to compensate.' },
+    { id: '02', name: 'Iksir Seal', lever: 'Bilingual badge',
+      file: 'concepts/02-iksir-seal.svg', mark: 'concepts/02-iksir-seal-mark.svg',
+      notes: '<b>Why it works globally:</b> the only concept here that goes to MENA at full strength — Arabic إكسير is set as a first-class wordmark, not retrofit. <b>Watch:</b> seals struggle below 24px; the strip at 16px will likely fail. Use the seal as a stamp / closure motif and pair with a simpler 16px mark.' },
+    { id: '03', name: 'Globe-Crescent', lever: 'Literal "global" cue',
+      file: 'concepts/03-globe-crescent.svg', mark: 'concepts/03-globe-crescent-mark.svg',
+      notes: '<b>Why it works globally:</b> the mark literally encodes the brand promise — heritage crescent + worldwide reach. <b>Watch:</b> meridian lines are the most fragile element at small sizes; consider a simplified mono version for under 32px.' },
+    { id: '04', name: 'Drop & Crescent', lever: 'Wellness-forward heritage',
+      file: 'concepts/04-drop-crescent.svg', mark: 'concepts/04-drop-crescent-mark.svg',
+      notes: '<b>Why it works globally:</b> the droplet is a near-universal wellness/supplement signifier — adding it to the crescent positions IKSIR squarely in the category without losing the heritage cue. <b>Watch:</b> softest concept; risks reading "beauty / skincare" rather than "supplement" depending on photography. Lock packaging copy ("Daily Wellness, Lasting Impact") to anchor it.' },
+    { id: '05', name: 'Star of Iksir', lever: 'Geometric ornament heritage',
+      file: 'concepts/05-star-of-iksir.svg', mark: 'concepts/05-star-of-iksir-mark.svg',
+      notes: '<b>Why it works globally:</b> the 8-point star (Khatim Sulayman) is one of the most recognisable Islamic-art motifs in the world — it carries the heritage so the wordmark can be quiet and modern. <b>Watch:</b> the star is also used by other global brands (Walmart-adjacent shapes); make sure trademark search clears the specific construction.' },
+    { id: '06', name: 'Refined Original', lever: 'Polish, not redesign',
+      file: 'concepts/06-refined-original.svg', mark: 'concepts/06-refined-original-mark.svg',
+      notes: '<b>Why it works globally:</b> if there\'s already brand equity in the existing serif wordmark, this option preserves it while fixing the optical-balance and small-size issues. The crescent is lifted off the "i" and becomes a brand element above the wordmark. <b>Watch:</b> still depends on the wordmark for full identity — pair with a stronger standalone monogram (the K-in-circle here) for app/avatar use.' },
+  ];
+
+  const palettes = ['A','B','C'];
+
+  async function loadSvg(path) {
+    const r = await fetch(path);
+    return r.ok ? r.text() : '';
+  }
+
+  function clone(node) { return node.cloneNode(true); }
+
+  async function build() {
+    const tpl = document.getElementById('conceptTpl');
+    const host = document.getElementById('concepts');
+    for (const c of concepts) {
+      const node = tpl.content.firstElementChild.cloneNode(true);
+      node.querySelector('.num').textContent = c.id;
+      node.querySelector('.name').textContent = c.name;
+      node.querySelector('.lever').textContent = c.lever;
+      const word = await loadSvg(c.file);
+      const mark = await loadSvg(c.mark);
+      node.querySelector('.wordmark-slot').innerHTML = word;
+      node.querySelector('.mark-slot').innerHTML = mark;
+      node.querySelectorAll('.fav-slot').forEach(s => s.innerHTML = mark);
+      node.querySelectorAll('.app-slot').forEach(s => s.innerHTML = mark);
+      node.querySelectorAll('.av-slot').forEach(s => s.innerHTML = mark);
+      node.querySelectorAll('.mono-slot').forEach(s => s.innerHTML = word);
+      node.querySelector('.notes-slot').innerHTML = c.notes;
+      host.appendChild(node);
+    }
+  }
+
+  document.querySelectorAll('.controls button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const body = document.body;
+      if (btn.dataset.palette) {
+        body.removeAttribute('data-mono');
+        body.dataset.palette = btn.dataset.palette;
+      } else if (btn.dataset.mono) {
+        body.removeAttribute('data-palette');
+        body.dataset.mono = btn.dataset.mono;
+      }
+      document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  build();
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" role="img" aria-label="IKSIR — star wordmark">
+  <title>IKSIR — Star-of-Iksir wordmark</title>
+  <desc>8-point Islamic geometric star (Khatim Sulayman) carrying the heritage cue, paired with a lighter, cleaner wordmark.</desc>
+  <defs>
+    <style>
+      .iksir-light { font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 300; letter-spacing: 0.42em; }
+    </style>
+    <mask id="starInner">
+      <rect width="100" height="100" fill="white"/>
+      <path d="M 58 42 A 12 12 0 1 0 58 58 A 9 9 0 1 1 58 42 Z" fill="black"/>
+    </mask>
+  </defs>
+
+  <g id="mark-star" transform="translate(20,18)">
+    <g fill="currentColor" mask="url(#starInner)">
+      <polygon points="22,22 78,22 78,78 22,78"/>
+      <polygon points="50,8 92,50 50,92 8,50"/>
+    </g>
+  </g>
+
+  <g id="word-star" transform="translate(140,0)" fill="currentColor">
+    <text class="iksir-light" x="0" y="76" font-size="62">IKSIR</text>
+  </g>
+</svg>
